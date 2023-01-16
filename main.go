@@ -9,10 +9,10 @@ import (
 )
 
 func main() {
+
 	r := gin.Default()
 	r.GET("/users", models.GetUsersDetail)
 	r.GET("/users/:name", models.GetUsers)
-	//r.GET("/users?:", models.GetAgeUsers)
 
 	if err := r.Run("localhost:7788"); err != nil {
 		panic(err)

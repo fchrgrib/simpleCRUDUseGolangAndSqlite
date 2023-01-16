@@ -38,7 +38,7 @@ func GetUsers(c *gin.Context) {
 
 func GetAgeUsers(c *gin.Context) {
 	var query struct {
-		Uid int `form:"Uid"`
+		Uid int `form:"ID"`
 	}
 
 	if err := c.ShouldBindQuery(&query); err != nil {
@@ -49,7 +49,7 @@ func GetAgeUsers(c *gin.Context) {
 	}
 
 	for _, u := range models.Users {
-		if u.Uid == query.Uid {
+		if u.ID == query.Uid {
 			c.JSON(http.StatusOK, u)
 		}
 		return
