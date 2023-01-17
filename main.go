@@ -12,11 +12,12 @@ func main() {
 
 	r := gin.Default()
 	r.GET("/users", models.GetUsersDetail)
+	r.GET("/users/?age", models.GetAgeUsers)
 	//r.GET("/users/:name", models.GetUsers)
 
-	r.GET("/users/:id", models.CreateUser)
-	r.GET("/users/location/:coordinate-Location", models.CreateLocation)
-	r.GET("/users/school/:coordinate-School", models.CreateSchool)
+	r.POST("/users/:id", models.CreateUser)
+	r.POST("/users/location/:coordinate-Location", models.CreateLocation)
+	r.POST("/users/school/:coordinate-School", models.CreateSchool)
 
 	r.PATCH("/users/:id", models.UpdateUsers)
 	r.PATCH("/users/location/:coordinate-Location", models.UpdateLocation)

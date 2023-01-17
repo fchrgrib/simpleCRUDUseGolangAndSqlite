@@ -124,7 +124,7 @@ func UpdateUsers(c *gin.Context) {
 	}
 	if err = db.Where("id = ?", c.Param("id")).First(&Users).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err,
+			"error": err.Error(),
 		})
 		return
 	}
